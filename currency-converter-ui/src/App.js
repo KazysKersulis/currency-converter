@@ -2,7 +2,6 @@ import React, {useState, useEffect, Fragment} from 'react';
 import Convert from './Convert';
 import './App.css';
 
-// const BASE_URL = 'https://api.exchangeratesapi.io/latest'
 const BASE_URL = 'http://127.0.0.1:8080/v1/currencies/rates'
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
   const [exchangeRate, setExchangeRate] = useState();
   const [showValidationError, setShowValidationError] = useState(false);
+  const [showFetchError, setShowFetchError] = useState(false);
 
   let toAmount, fromAmount
 
@@ -34,10 +34,11 @@ function App() {
         setFromCurrency(data.base)
         setToCurrency(firstCurrency)
         setExchangeRate(data.rates[firstCurrency])
+        setShowFetchError(false);
       })
-      .catch(
-        console.log("error")
-      )
+      .catch( err => {
+        setShowFetchError(true);
+      })
   }, [])
 
   useEffect(() => {
@@ -74,7 +75,9 @@ function App() {
       <div className="calculator">
         {primaryCurrency}
         {secondaryCurrency}
-        {currencyOptions.length > 0 && <h1>1 {fromCurrency} = {exchangeRate} {toCurrency}</h1>}
+        <div style={{color: "white"}}>
+          {currencyOptions.length > 0 && <h1>1 {fromCurrency} = {exchangeRate} {toCurrency}</h1>}
+        </div>
       </div>
     </Fragment>
   )
@@ -102,9 +105,12 @@ function App() {
 
   return (
     <div className="App-container app-cont-center">
-
       <div className="header">
         <h1>Currency Converter</h1>
+      </div>
+      <div>
+        {showFetchError && 
+        <div style={{fontSize:12, color: "red"}}>Error while fetching currency rates!</div>}
       </div>
       {calculatorComponent}
     </div>
