@@ -1,0 +1,125 @@
+.App-container {
+  background-image: linear-gradient(to top right, #13557d, #0e4a6e, #0a3f5f, #043552, #022b44);
+  color: #052a41;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.app-cont-center {
+  justify-content: center;
+}
+
+.header {
+  margin: 15px 0;
+  color: #d6d9db;
+}
+
+.header h1 {
+  font-size: 1.2em;
+}
+
+/* calculator */
+.calculator {
+  background: #cedce5;
+  width: 21em;
+  height: 5.9em;
+  border-radius: 5px;
+}
+
+.nav-btn .info {
+  padding-left: 8px;
+  text-align: left;
+}
+
+.nav-btn .info1 {
+  padding-right: 8px;
+  text-align: right;
+}
+
+.currency {
+  background: #fff;
+  width: 10em;
+  height: 5.4em;
+  margin: .25em;
+  float: left;
+  border-radius: 3px;
+}
+
+.monetary {
+  background: teal;
+  height: 50px;
+  width: 100%
+}
+
+.monetary input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  text-align: right;
+  padding: 3px 15px;
+  font-weight: 500;
+  color: gray;
+  border-bottom: 1px solid lightgray;
+  border-radius: 0 0 0 0;
+}
+
+.monetary input:hover {
+  cursor: pointer;
+  background: #f1f1f1;
+  color: #5d5a5a
+}
+
+.monetary input:focus {
+  outline: none;
+}
+
+.monetary input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select {
+  margin: 15px 0 8px 0;
+  font-size: 0.8em;
+  height: 35px;
+  width: 20em;
+  color: #d6d9db;
+}
+
+
+/* select */
+.select .div {
+  width: 22%;
+  float: left;
+  height: 35px;
+}
+
+.select .option{
+  width: 56%;
+  background: teal;
+  border-radius: 5px;
+}
+
+.option select{
+  font-weight: 500; 
+  border: none;
+}
+
+.option select option{
+  width: 50%;
+  background: #cedce5;
+}
+
+.select div h5 {
+  height: 28px;
+  line-height: 28px;
+}
+
+.select .button {
+  margin: 0;
+  padding: 0;
+}
