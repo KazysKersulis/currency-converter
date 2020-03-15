@@ -89,6 +89,7 @@ public class CurrencyServiceImpl implements CurrencyService {
             return this.currRatesCache.get(currencySymbol.toUpperCase());
         } finally {
             readLock.unlock();
+            LOG.error("error encountered whilst fetching live rates for -> " + currencySymbol);
         }
     }
 }
